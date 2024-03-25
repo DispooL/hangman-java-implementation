@@ -40,13 +40,8 @@ public class Hangman implements HangmanInterface {
 
     @Override
     public boolean isSolved() {
-        for (int i = 0; i < oddWord.length(); i++) {
-            if (this.progressWord[i] == null) {
-                return false;
-            }
-        }
-
-        return true;
+        return Arrays.stream(this.progressWord)
+                .noneMatch(Objects::isNull);
     }
 
     @Override
